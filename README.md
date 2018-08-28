@@ -20,3 +20,6 @@ vue create [project-name]
 yarn serve
 
 ```
+
+### Attention
+In branch `vue-scripts` not used `vue-cli` + node, just `public` dir.

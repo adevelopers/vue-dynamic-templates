@@ -4,14 +4,32 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title>vue-dynamic</title>
+    <script src="vendors/vue.js" ></script>
+    <script src="vendors/vue-resource.min.js" ></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <style>
+      .table {
+        padding: 20px;
+        border: 1px dotted #e5e5e5;
+      }
+    </style>
   </head>
   <body>
     <noscript>
       <strong>We're sorry but vue-dynamic doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
-    <div id="app"></div>
+    <div id="app">
+      <table-common template-name="small"></table-common>
+      <table-common template-name="big"></table-common>
+      <table-common template-name="main"></table-common>
+
+      <span v-bind:title="message">
+        Hover your mouse over me for a few seconds
+        to see my dynamically bound title!
+      </span>
+    </div>
     <!-- built files will be auto injected -->
+    <script src="js/main.js" ></script>
   </body>
 </html>
