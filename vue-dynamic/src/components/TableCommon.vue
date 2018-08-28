@@ -19,6 +19,7 @@
 </template>
 
 <script>
+import Vue from 'vue/dist/vue.esm.js'
 import Cell from './Cell.vue'
 
 export default {
