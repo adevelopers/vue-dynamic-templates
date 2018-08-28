@@ -1,25 +1,6 @@
-<template>
-  <div class="hello">
-    <h1>{{ templateName }}</h1>
-    <table class="" border="2">
-      <tr>
-        <td><Cell field-name="first" /> </td>
-        <td><Cell field-name="first2" /></td>
-        <td><Cell field-name="first3" /></td>
-        <td><Cell field-name="first4" /></td>
-      </tr>
-      <tr>
-        <td><Cell field-name="second" /></td>
-        <td>Cell</td>
-        <td>Cell</td>
-        <td>Cell</td>
-      </tr>
-    </table>
-  </div>
-</template>
-
 <script>
 import Vue from 'vue/dist/vue.esm.js'
+import axios from 'axios'
 import Cell from './Cell.vue'
 
 export default {
@@ -27,10 +8,38 @@ export default {
   props: {
     templateName: String
   },
+  data: function() {
+    return {
+      title: "Good component",
+      omega: 9,
+      template: null
+    }
+  },
+  render: function(createElement) {
+    if (!this.template) {
+      return createElement('div', 'Loading...');
+    } else {
+      return this.template();
+    }
+  },
+  mounted() {
+    let self = this;
+    let templateUrl = '/templates/' + this.templateName + '.html';
+    console.log(templateUrl);
+    axios.get(templateUrl)
+      .then(function (response) {
+        self.template =  Vue.compile("" + response.data).render;
+      })
+      .catch(function (error) {
+        console.log(error);
+      })
+      .then(function () {
+
+      });
+  },
   components: {
     Cell
   }
-
 }
 </script>
 
