@@ -1,17 +1,18 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <TableCommon template-name="big" />
+    <TableCommon template-name="main" />
+    <TableCommon template-name="small" />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import TableCommon from './components/TableCommon.vue'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    TableCommon
   }
 }
 </script>
