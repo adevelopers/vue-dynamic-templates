@@ -13,51 +13,29 @@ export default {
   data: function() {
     return {
       template: null,
-      staticTemplate: null,
-      compiled: null,
+      title: "ХЗ"
     }
   },
   render: function(createElement) {
-    if (!this.compiled) {
+    if (!this.template) {
       return createElement('div', 'Loading...');
     } else {
-      console.log(this.compiled.render)
-      if (this.compiled.render.call !== null) {
-          this.template = this.compiled.render;
-          return this.template();
-      } else {
-        return createElement('div', 'Errors...');
-      }
+      return this.template();
     }
-  },
-  staticRenderFns: function(){
-    if (this.compiled !== null) {
-        return this.compiled.staticRenderFns;
-    }
-    return null
   },
   mounted() {
     let self = this;
     let templateUrl = '/templates/' + this.templateName + '.html';
-    this.$http.get(templateUrl).then(response => {
-          let compiled = Vue.compile(response.data);
-          if (compiled !== null) {
-            self.compiled = compiled
-          }
-    }, response => {
-
-    });
-    // axios.get(templateUrl)
-    //   .then(function (response) {
-    //     self.template =  Vue.compile("" + response.data).render;
-    //   })
-    //   .catch(function (error) {
-    //     console.log(error);
-    //   })
-    //   .then(function (x) {
-    //     console.log("Хрень какая-то", x)
-    //
-    //   });
+    axios.get(templateUrl)
+      .then(function (response) {
+        self.template =  Vue.compile("" + response.data).render;
+      })
+      .catch(function (error) {
+        console.log(error);
+      })
+      .then(function () {
+        console.log("Хрень какая-то")
+      });
   },
   components: {
     Cell
