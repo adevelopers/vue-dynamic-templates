@@ -1,18 +1,16 @@
 <template>
   <div id="app">
-    <TableCommon template-name="big" />
-    <TableCommon template-name="main" />
-    <TableCommon template-name="small" />
+    <Journal />
   </div>
 </template>
 
 <script>
-import TableCommon from './components/TableCommon.vue'
+import Journal from './components/Journal'
 
 export default {
   name: 'app',
   components: {
-    TableCommon
+    Journal
   }
 }
 </script>
@@ -26,4 +24,11 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+
+.table {
+  padding: 20px;
+  border: 1px dotted #e5e5e5;
+  margin-bottom: 20px;
+}
+
 </style>

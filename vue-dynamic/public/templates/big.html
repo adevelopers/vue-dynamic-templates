@@ -1,6 +1,30 @@
 <div class="table big">
-  <span>Big template {{title}}</span>
-  <cell name="big_alfa" />
-  <cell name="small_alfa" />
-  <cell name="small_alfa2" />
+  <span>Big table</span>
+  <table align="center">
+    <thead>
+      <tr>
+        <th>First</th>
+        <th>Seond</th>
+        <th v-show="false"><cell name="big_1_1" /></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><cell name="big_1_1" /></td>
+        <td><cell name="big_1_2" /></td>
+      </tr>
+      <tr>
+        <td><cell name="big_2_1" /></td>
+        <td><cell name="big_2_2" /></td>
+      </tr>
+      <tr>
+        <td><cell name="big_3_1" /></td>
+        <td><cell name="big_3_2" /></td>
+      </tr>
+      <tr>
+        <td><cell name="big_4_1" /></td>
+        <td><cell name="big_4_2" /></td>
+      </tr>
+    </tbody>
+  </table>
 </div>
